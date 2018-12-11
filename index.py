@@ -2,7 +2,7 @@ from telegram.ext import Updater
 from telegram.ext import CommandHandler
 import logging
 
-updater = Updater(token = 'TOKEN HERE')
+updater = Updater(token = open("LOCALTOKEN.txt", "r").read())
 dispatcher= updater.dispatcher
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level = logging.INFO)
