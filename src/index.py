@@ -18,14 +18,18 @@ def restart_and_update(bot, update):
     updater.stop()
 
     # fetch repo
+    os.system("pm2 stop Luna")
     os.system("git pull")
+    os.system("pm2 start Luna")
 
     # restart
     updater.start_polling()
     bot.send_message(chat_id = update.message.chat_id, text="Actualización completa! Woof")
 
+restart_and_update_handler = CommandHandler('update', restart_and_update)
+start_handler = CommandHandler('luna', start)
 
-start_handler = CommandHandler('Luna', start)
 dispatcher.add_handler(start_handler)
+dispatcher.add_handler(restart_and_update_handler)
 
 updater.start_polling()
