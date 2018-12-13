@@ -20,7 +20,7 @@ def restart_and_update(bot, update):
     os.system("pm2 restart Luna")
 
     # restart
-    bot.send_message(chat_id = update.message.chat_id, text="Actualización completa! Woof")
+    bot.send_message(chat_id = update.message.chat_id, text="Actualizacion completa! Woof")
 
 restart_and_update_handler = CommandHandler('update', restart_and_update)
 start_handler = CommandHandler('luna', start)
