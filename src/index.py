@@ -9,7 +9,7 @@ dispatcher= updater.dispatcher
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level = logging.INFO)
 
 def start(bot, update):
-    bot.send_message(chat_id = update.message.chat_id, text="Soy la lunera")
+    bot.send_message(chat_id = update.message.chat_id, text="Soy la lunera woof woof")
 
 ## todo: pending
 def restart_and_update(bot, update):
