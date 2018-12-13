@@ -13,18 +13,13 @@ def start(bot, update):
 
 ## todo: pending
 def restart_and_update(bot, update):
-    # shutdown
     bot.send_message(chat_id = update.message.chat_id, text="Actualizando...")
-    updater.stop()
+    print("Updating system...")
 
-    # fetch repo
-    os.system("pm2 stop Luna")
     os.system("git pull")
-    os.system("pm2 start Luna")
+    os.system("pm2 restart Luna")
 
-    # restart
-    updater.start_polling()
-    bot.send_message(chat_id = update.message.chat_id, text="Actualización completa! Woof")
+    bot.send_message(chat_id = update.message.chat_id, text="Actualizacion completa! Woof")
 
 restart_and_update_handler = CommandHandler('update', restart_and_update)
 start_handler = CommandHandler('luna', start)
